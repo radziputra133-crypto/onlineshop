@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Radzi Weld – Welding Shop</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="bar">
+  <div class="logo">RADZI <span>WELD</span></div>
+  <form class="search" role="search" onsubmit="return false"><input id="q" type="search" placeholder="Search machines, helmets, electrodes" aria-label="Search products"><button type="button" onclick="render()">Search</button></form>
+  <button class="cartbtn" id="adminBtn" hidden onclick="admin(true)">Admin</button>
+  <button class="cartbtn" onclick="toggle(true)" aria-label="Open cart">Cart<b id="cnt">0</b></button>
+</div></header>
+
+<section class="hero"><h1>Welding gear for every job.</h1><p>Machines, safety gear and consumables from Radzi Weld. Order online and we confirm on WhatsApp.</p><i class="spark"></i></section>
+
+<main class="wrap">
+  <div class="tools" id="cats"></div>
+  <div class="tools"><span class="meta" id="rc"></span>
+    <select id="sort" aria-label="Sort products" onchange="render()"><option value="pop">Best selling</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>© Radzi Weld. Sample products and prices; edit them in the code.</footer>
+
+<div id="adm" hidden><div class="wrap">
+  <div class="ah"><h2>Edit products</h2><span class="meta" id="amsg" role="status"></span>
+    <button class="btn alt" onclick="addRow()">Add product</button>
+    <button class="btn alt" onclick="admin(false)">Cancel</button>
+    <button class="btn" id="asave" onclick="saveAdm()">Save changes</button></div>
+  <p class="meta">Icon, name, category and price (RM). Saving updates the live shop for every customer.</p>
+  <div id="arows"></div>
+</div></div>
+<script type="application/json" id="data"></script>
+<div id="shade" onclick="toggle(false)"></div>
+<aside id="drawer" aria-label="Shopping cart">
+  <div class="dh"><h2>Your cart</h2><button class="x" onclick="toggle(false)" aria-label="Close cart">×</button></div>
+  <div id="items"></div>
+  <div class="df">
+    <div class="tot"><span>Total</span><span id="total">RM 0.00</span></div>
+    <input id="nm" placeholder="Your name" aria-label="Your name">
+    <input id="ad" placeholder="Delivery address" aria-label="Delivery address">
+    <a id="buy" class="buy" href="#" target="_blank" rel="noopener" aria-disabled="true">Order on WhatsApp</a>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
